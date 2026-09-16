@@ -16,9 +16,11 @@ async function main(){
     console.log("Documents in User Information collection:", await cursor.toArray());
 
     //Write
-    const data = [{ firstname:'Varad', lastname:'Patil', age: 20, city: "Lucknow"}]
-    await collection.insertOne(data);
-    console.log("Document inserted into User Information collection", collection);
+    const data = { firstname:'Varad', lastname:'Saxena', age: '35', city: "Lucknow"};
+    const newCollection = await collection.insertMany([data]);
+    console.log("Document inserted into User Information collection =>", newCollection);
+
+    //Update
     return 'done.'
 }
 
