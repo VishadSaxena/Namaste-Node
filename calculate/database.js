@@ -11,7 +11,14 @@ async function main(){
     const collection = db.collection("User Information");
 
     // CRUD operations can be performed here
+    //Read
+    const cursor = db.collection('User Information').find({});
+    console.log("Documents in User Information collection:", await cursor.toArray());
 
+    //Write
+    const data = [{ firstname:'Varad', lastname:'Patil', age: 20, city: "Lucknow"}]
+    await collection.insertOne(data);
+    console.log("Document inserted into User Information collection", collection);
     return 'done.'
 }
 
